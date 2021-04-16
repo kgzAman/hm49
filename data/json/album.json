@@ -1,0 +1,32 @@
+[
+  {
+    "name":"The Dark Side of the Moon",
+    "artist":"Pink Floyd",
+    "year": 1973,
+    "img":"The_Dark_Side_of_the_Moon.jpg"
+  },
+  {
+    "name":"Back in Black",
+    "artist":"AC/DC",
+    "year": 1980,
+    "img":"ACDC.jpg"
+  },
+  {
+    "name":"The Bodyguard",
+    "artist":"Whitney Houston",
+    "year": 1992,
+    "img":"TheBodyguard.jpeg"
+  },
+  {
+    "name":"Millennium",
+    "artist":"Backstreet Boys",
+    "year": 1999,
+    "img":"Millennium1999.jpg"
+  },
+  {
+    "name":"Let's Talk About Love",
+    "artist":"Celine Dion",
+    "year": 1997,
+    "img":"love.jpg"
+  }
+]
