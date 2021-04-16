@@ -3,12 +3,20 @@ package server;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import static java.util.stream.Collectors.joining;
 
 public abstract class BasicServer {
 
@@ -48,26 +56,9 @@ public abstract class BasicServer {
     }
 
     private void registerCommonHandlers() {
-        // самый основной обработчик, который будет определять
-        // какие обработчики вызывать в дальнейшем
+
         server.createContext("/", this::handleIncomingServerRequests);
-        server.createContext("/books/", this::handleIncomingServerRequests);
 
-
-
-        // специфичные обработчики, которые выполняют свои действия
-        // в зависимости от типа запроса
-
-        // обработчик для корневого запроса
-        // именно этот обработчик отвечает что отображать,
-        // когда пользователь запрашивает localhost:9889
-        registerGet("/", exchange -> sendFile(exchange, makeFilePath("index.html"), ContentType.TEXT_HTML));
-        registerGet("/sample", exchange -> sendFile(exchange, makeFilePath("sample.html"), ContentType.TEXT_HTML));
-        registerGet("/books/", exchange -> sendFile(exchange, makeFilePath("books.ftl"), ContentType.TEXT_HTML));
-
-
-
-        // эти обрабатывают запросы с указанными расширениями
         registerFileHandler(".css", ContentType.TEXT_CSS);
         registerFileHandler(".html", ContentType.TEXT_HTML);
         registerFileHandler(".jpeg", ContentType.IMAGE_JPEG);
@@ -80,9 +71,15 @@ public abstract class BasicServer {
         getRoutes().put("GET " + route, handler);
     }
 
+    protected void registerPost(String route, RouteHandler handler) {
+        getRoutes().put("POST " + route, handler);
+    }
+
     protected final void registerFileHandler(String fileExt, ContentType type) {
         registerGet(fileExt, exchange -> sendFile(exchange, makeFilePath(exchange), type));
     }
+
+
 
     protected final Map<String, RouteHandler> getRoutes() {
         return routes;

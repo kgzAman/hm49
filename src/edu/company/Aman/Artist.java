@@ -1,5 +1,7 @@
 package edu.company.Aman;
 
+import java.util.Objects;
+
 public class Artist {
     private Integer id;
     private String name;
@@ -37,5 +39,23 @@ public class Artist {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return  name ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Artist artist = (Artist) o;
+        return Objects.equals(name, artist.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

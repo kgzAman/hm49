@@ -2,10 +2,10 @@ package edu.company.Aman;
 
 import java.util.List;
 
-public class artistDataModel {
-   private List<Artist> artists;
+public class ArtistDataModel {
+    List<Artist> artists;
 
-    public artistDataModel(List<Artist> artists) {
+    public ArtistDataModel(List<Artist> artists) {
         this.artists = artists;
     }
 

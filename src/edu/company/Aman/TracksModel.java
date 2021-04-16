@@ -2,10 +2,11 @@ package edu.company.Aman;
 
 import java.util.List;
 
-public class trackDataModel {
+public class TracksModel {
+
     private List<Track> tracks;
 
-    public trackDataModel(List<Track> tracks) {
+    public TracksModel(List<Track> tracks) {
         this.tracks = tracks;
     }
 

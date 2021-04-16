@@ -10,57 +10,94 @@ import freemarker.template.TemplateExceptionHandler;
 import server.BasicServer;
 import server.ContentType;
 import server.ResponseCodes;
+import server.Utils;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.joining;
 
 public class TrackServer extends BasicServer {
     private final static Configuration freemarker = initFreeMarker();
 
-    List<Artist> artists= new ArrayList<>();
-    List<Album> albums = new ArrayList<>();
-    List<Track> track = new ArrayList<>();
+    List<Track> tracks = initTracks();;
+    List<Album> albums = tracks.stream().map(Track::getAlbum).distinct().collect(Collectors.toList());
+    List<Artist> artists = albums.stream().map(Album::getArtist).distinct().collect(Collectors.toList());
+
 
     protected TrackServer(String host, int port) throws IOException {
         super(host, port);
-        registerGet("/artist",this::artistsHandler);
-        registerGet("/album",this::albumHandler);
-        initMembers();
-        initAlbums();
+        System.out.println(albums);
+
+
+        registerGet("/tracks",this::TracksHandler);
+        registerGet("/albums",this::AlbumHandler);
+        registerGet("/artist",this::ArtistHandler);
+
+        registerPost("/artist",this::registerArtist);
 
     }
 
-    private void initMembers() throws FileNotFoundException {
+    private List<Track> initTracks() throws FileNotFoundException {
         Gson gson = new Gson();
-        JsonReader reader = new JsonReader(new FileReader("data\\json\\artist.json"));
-        artists= Arrays.asList(gson.fromJson(reader,Artist[].class));
-        int id = 0;
+        JsonReader reader = new JsonReader(new FileReader("data\\json\\tracks.json"));
+
+
+
+        return Arrays.asList(gson.fromJson(reader,Track[].class));
+    }
+
+    private void TracksHandler(HttpExchange exchange){
+        TracksModel tracksModel = new TracksModel(tracks);
+        renderTemplate(exchange,"track.ftl",tracksModel);
+    }
+
+    private void AlbumHandler(HttpExchange exchange){
+        AlbumDataModel albumDataModel = new AlbumDataModel(albums);
+            renderTemplate(exchange,"album.ftl",albumDataModel);
+    }
+    private void ArtistHandler(HttpExchange exchange){
+        ArtistDataModel artistDataModel = new ArtistDataModel(artists);
+            renderTemplate(exchange,"artist.ftl",artistDataModel);
+    }
+    private void registerArtist(HttpExchange exchange) {
+        String cType = getContentType(exchange);
+        String raw = getBody(exchange);
+        Map<String, String> parsed = Utils.parseUrlEncoded(raw, "&");
+        StringBuilder id = new StringBuilder(parsed.get("id"));
+
+        int ide = 0;
         for (Artist artist : artists) {
-            artist.setId(id++);
-            id +=1;
+            artist.setId(ide++);
+            id.append(1);
         }
+        String path = ("/artist?id=" + id);
+        redirect303(exchange, path);
+
     }
 
-    private void initAlbums() throws FileNotFoundException {
-        Gson gson = new Gson();
-        JsonReader reader = new JsonReader(new FileReader("data\\json\\album.json"));
-        albums= Arrays.asList(gson.fromJson(reader,Album[].class));
-        int id = 0;
-        for (Album album : albums) {
-            album.setId(id++);
-            id +=1;
+    public static String getContentType(HttpExchange exchange) {
+        return exchange.getRequestHeaders()
+                .getOrDefault("Content-Type", List.of(""))
+                .get(0);
+    }
+    protected String getBody(HttpExchange exchange) {
+        InputStream input = exchange.getRequestBody();
+        Charset utf8 = StandardCharsets.UTF_8;
+        InputStreamReader isr = new InputStreamReader(input, utf8);
+        try (BufferedReader reader = new BufferedReader(isr)) {
+            return reader.lines().collect(joining(""));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return "";
     }
-    private void artistsHandler(HttpExchange exchange) {
-        artistDataModel artistDataModel = new artistDataModel(artists);
-        renderTemplate(exchange,"artist.ftl",artistDataModel);
-    }
-    private void albumHandler(HttpExchange exchange) {
-        albumDataModel albumDataModel = new albumDataModel(albums);
-        renderTemplate(exchange,"album.ftl",albumDataModel);
-    }
+
 
 
     private static Configuration initFreeMarker() {
@@ -89,6 +126,16 @@ public class TrackServer extends BasicServer {
                 sendByteData(exchange, ResponseCodes.OK, ContentType.TEXT_HTML, data);
             }
         } catch (IOException | TemplateException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void redirect303(HttpExchange exchange, String path) {
+        try {
+            exchange.getResponseHeaders().add("Location", path);
+            exchange.sendResponseHeaders(303, 0);
+            exchange.getResponseBody().close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
