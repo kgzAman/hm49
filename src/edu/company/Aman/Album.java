@@ -3,7 +3,7 @@ package edu.company.Aman;
 public class Album {
     private Integer id;
     private String name;
-    private String artist;
+    private Artist artist;
     private int year;
     private String img;
 
@@ -23,11 +23,11 @@ public class Album {
         this.name = name;
     }
 
-    public String getArtist() {
+    public Artist getArtist() {
         return artist;
     }
 
-    public void setArtist(String artist) {
+    public void setArtist(Artist artist) {
         this.artist = artist;
     }
 

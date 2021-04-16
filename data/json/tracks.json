@@ -1,0 +1,235 @@
+[
+  {
+    "name": "Speak to Me",
+    "album":[{
+        "name": "The Dark Side of the Moon",
+        "artist": [{
+            "name":"Pink Floyd",
+            "img" :"Pink_Floyd.jpeg",
+            "information": "Pink Floyd were an English rock band formed in London in 1965. and elaborate live shows, and became a leading band of the progressive rock genre"
+          }
+             ],
+        "year": 1973,
+        "img":"The_Dark_Side_of_the_Moon.jpg"
+      }
+    ],
+    "duration":"1:30"
+  },
+  {
+    "name": "Breathe",
+    "album": [{
+      "name": "The Dark Side of the Moon",
+      "artist": [{
+        "name":"Pink Floyd",
+        "img" :"Pink_Floyd.jpeg",
+        "information": "Pink Floyd were an English rock band formed in London in 1965. and elaborate live shows, and became a leading band of the progressive rock genre"
+      }
+      ],
+      "year": 1973,
+      "img":"The_Dark_Side_of_the_Moon.jpg"
+    }],
+    "duration":"2:43"
+  },
+  {
+    "name": "On the Run",
+    "album": [{
+      "name": "The Dark Side of the Moon",
+      "artist": [{
+        "name":"Pink Floyd",
+        "img" :"Pink_Floyd.jpeg",
+        "information": "Pink Floyd were an English rock band formed in London in 1965. and elaborate live shows, and became a leading band of the progressive rock genre"
+      }
+      ],
+      "year": 1973,
+      "img":"The_Dark_Side_of_the_Moon.jpg"
+    }
+    ],
+    "duration":"3:36"
+  },
+  {
+    "name": "Shoot to Thrill",
+    "album":[{
+      "name":"Back in Black",
+      "artist":[{
+          "name":"AC/DC",
+          "img" :"ACDC2009.jpg",
+          "information": "AC/DC are an Australian rock band formed in Sydney in 1973 by Scottish-born brothers Malcolm and Angus Young."
+      }],
+      "year": 1980,
+      "img":"ACDC.jpg"
+    }],
+    "duration":"5:17"
+  },
+  {
+    "name": "What Do You Do for Money Honey",
+    "album": [{
+      "name":"Back in Black",
+      "artist":[{
+        "name":"AC/DC",
+        "img" :"ACDC2009.jpg",
+        "information": "AC/DC are an Australian rock band formed in Sydney in 1973 by Scottish-born brothers Malcolm and Angus Young."
+      }],
+      "year": 1980,
+      "img":"ACDC.jpg"
+    }],
+    "duration":"3:33"
+  },
+  {
+    "name": "Given the Dog a Bone",
+    "album":[{
+      "name":"Back in Black",
+      "artist":[{
+        "name":"AC/DC",
+        "img" :"ACDC2009.jpg",
+        "information": "AC/DC are an Australian rock band formed in Sydney in 1973 by Scottish-born brothers Malcolm and Angus Young."
+      }],
+      "year": 1980,
+      "img":"ACDC.jpg"
+    }],
+    "duration":"3:30"
+  },
+  {
+    "name": "I Have Nothing",
+    "album": [
+      {
+        "name":"The Bodyguard",
+        "artist":[
+          {
+            "name":"Whitney Houston",
+            "img" :"Whitney_Houston.jpg",
+            "information": "Whitney Elizabeth Houston (August 9, 1963 – February 11, 2012) was an American singer and actress."
+          }
+        ],
+        "year": 1992,
+        "img":"TheBodyguard.jpeg"
+      }
+    ],
+    "duration":"4:48"
+  },
+  {
+    "name": "Run to You",
+    "album": [
+      {
+        "name":"The Bodyguard",
+        "artist":[
+          {
+            "name":"Whitney Houston",
+            "img" :"Whitney_Houston.jpg",
+            "information": "Whitney Elizabeth Houston (August 9, 1963 – February 11, 2012) was an American singer and actress."
+          }
+        ],
+        "year": 1992,
+        "img":"TheBodyguard.jpeg"
+      }
+    ],
+    "duration":"4:22"
+  },
+  {
+    "name": "I Will Always Love You",
+    "album":  [
+      {
+        "name":"The Bodyguard",
+        "artist":[
+          {
+            "name":"Whitney Houston",
+            "img" :"Whitney_Houston.jpg",
+            "information": "Whitney Elizabeth Houston (August 9, 1963 – February 11, 2012) was an American singer and actress."
+          }
+        ],
+        "year": 1992,
+        "img":"TheBodyguard.jpeg"
+      }
+    ],
+    "duration":"4:31"
+  },
+  {
+    "name": "Larger than life ",
+    "album":[{
+        "name":"Millennium",
+        "artist":[{
+            "name":"Backstreet Boys",
+            "img" :"Backstreet_Boys.jpg",
+            "information": "Backstreet Boys (often abbreviated as BSB) are an American vocal group, formed in Orlando, Florida in 1993. The group consists of Nick Carter, Howie Dorough, AJ McLean, and cousins Brian Littrell and Kevin Richardson."
+        }],
+        "year": 1999,
+        "img":"Millennium1999.jpg"
+    }],
+    "duration":"3:52"
+  },
+  {
+    "name": "I want it that way",
+    "album":[{
+      "name":"Millennium",
+      "artist":[{
+        "name":"Backstreet Boys",
+        "img" :"Backstreet_Boys.jpg",
+        "information": "Backstreet Boys (often abbreviated as BSB) are an American vocal group, formed in Orlando, Florida in 1993. The group consists of Nick Carter, Howie Dorough, AJ McLean, and cousins Brian Littrell and Kevin Richardson."
+      }],
+      "year": 1999,
+      "img":"Millennium1999.jpg"
+    }],
+    "duration":"3:33"
+  },
+  {
+    "name": "Show me the meaning of being lonely",
+    "album": [{
+      "name":"Millennium",
+      "artist":[{
+        "name":"Backstreet Boys",
+        "img" :"Backstreet_Boys.jpg",
+        "information": "Backstreet Boys (often abbreviated as BSB) are an American vocal group, formed in Orlando, Florida in 1993. The group consists of Nick Carter, Howie Dorough, AJ McLean, and cousins Brian Littrell and Kevin Richardson."
+      }],
+      "year": 1999,
+      "img":"Millennium1999.jpg"
+    }],
+    "duration":"3:54"
+  },
+  {
+    "name": "Treat Her Like a Lady",
+    "album": [ {
+      "name":"Let's Talk About Love",
+      "artist":[
+        {
+          "name":"Celine Dion",
+          "img" :"Celine_Dion.jpg",
+          "information": "She is renowned for her powerful, technically skilled vocals,[4][5] and remains the best-selling Canadian recording artist and one of the best-selling artists of all time with record sales of over 200 million worldwide."
+        }
+      ],
+      "year": 1997,
+      "img":"love.jpg"
+    }],
+    "duration":"4:05"
+  },
+  {
+    "name": "Immortality",
+    "album": [ {
+      "name":"Let's Talk About Love",
+      "artist":[
+        {
+          "name":"Celine Dion",
+          "img" :"Celine_Dion.jpg",
+          "information": "She is renowned for her powerful, technically skilled vocals,[4][5] and remains the best-selling Canadian recording artist and one of the best-selling artists of all time with record sales of over 200 million worldwide."
+        }
+      ],
+      "year": 1997,
+      "img":"love.jpg"
+    }],
+    "duration":"4:11"
+  },
+  {
+    "name": "The Reason",
+    "album": [ {
+      "name":"Let's Talk About Love",
+      "artist":[
+        {
+          "name":"Celine Dion",
+          "img" :"Celine_Dion.jpg",
+          "information": "She is renowned for her powerful, technically skilled vocals,[4][5] and remains the best-selling Canadian recording artist and one of the best-selling artists of all time with record sales of over 200 million worldwide."
+        }
+      ],
+      "year": 1997,
+      "img":"love.jpg"
+    }],
+    "duration":"5:01"
+  }
+]
